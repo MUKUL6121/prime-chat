@@ -34,6 +34,7 @@
             // await chat.push(data);
             // send Message here
             await socket.emit('chat message', data);
+            msg.value = "";
             // Write the message to textarea
         };
 
