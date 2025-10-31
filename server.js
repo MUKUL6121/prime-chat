@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
     //     console.log("User Name Set To: " + user_name);
     // });
     socket.on('chat message', (data) => {
-        console.log(data.user + " : " + data.msg + " : " + data.time);
+        // console.log(data.user + " : " + data.msg + " : " + data.time);
         // console.log(data);
         const msgary = [];
         msgary.push(data);
