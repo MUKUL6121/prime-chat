@@ -25,7 +25,6 @@
         async function sendmessage() {
             var user = document.querySelector('#user-name').value;
             var msg = document.querySelector(`#msg-input`).value;
-            // var msgarea = document.getElementById('msgs');
             // got date here
             const date = new Date();
             const time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
@@ -34,7 +33,7 @@
             // await chat.push(data);
             // send Message here
             await socket.emit('chat message', data);
-            msg.value = "";
+            document.querySelector(`#msg-input`).value = "";
             // Write the message to textarea
         };
 
@@ -61,8 +60,10 @@
         <div><textarea name="" id="msgs" readonly></textarea></div>
 
         <div id="send">
-            <input type="text" id="msg-input" placeholder="enter message">
-            <button onclick="sendmessage()">Send</button>
+            <form onsubmit="sendmessage(); return false;">
+                <input type="text" id="msg-input" placeholder="enter message">
+                <button type="submit">Send</button>
+            </form>
         </div>
     </div>
 
