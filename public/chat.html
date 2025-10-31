@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./chat.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        var chat;
+        // let msgarea;
+
+        socket.on('connect', () => {
+            console.log(`connected to server`);
+        });
+
+        socket.on('message', async (msgary) => {
+            // await chat.push(data);
+            chat = msgary;
+            display();
+        });
+
+        async function sendmessage() {
+            var user = document.querySelector('#user-name').value;
+            var msg = document.querySelector(`#msg-input`).value;
+            // var msgarea = document.getElementById('msgs');
+            // got date here
+            const date = new Date();
+            const time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+            // got data here
+            var data = { user, msg, time };
+            // await chat.push(data);
+            // send Message here
+            await socket.emit('chat message', data);
+            // Write the message to textarea
+        };
+
+        function display() {
+            var msgarea = document.getElementById('msgs');
+            chat.forEach((item) => {
+                msgarea.innerHTML += item.user + " (" + item.time + "): " + item.msg + "\n";
+            });
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id=" main" style=" border: 2px solid black; padding: 20px;">
+        <h2>Messages</h2>
+        <!-- <input type="checkbox" onclick="connect()"> -->
+        <div id="user">
+            <input type="text" id="user-name" placeholder="enter your name" style="width: 100%;">
+            <!-- <button onclick="set()">Set Name</button> -->
+            <span></span>
+        </div>
+
+        <div><textarea name="" id="msgs"></textarea></div>
+
+        <div id="send">
+            <input type="text" id="msg-input" placeholder="enter message">
+            <button onclick="sendmessage()">Send</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

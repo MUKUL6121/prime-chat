@@ -1,0 +1,45 @@
+body {
+    background-color: #a15656;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    height: 100vh;
+    margin: 0;
+}
+
+form {
+    width: 100%;
+}
+
+#main {
+    border: 2px solid black;
+    width: 70%;
+}
+
+#user {
+    height: 30px;
+    width: 100%;
+}
+
+textarea {
+    height: 270px;
+    overflow: scroll;
+    width: 100%;
+    scrollbar-3dlight-color: aquamarine;
+}
+
+input {
+    height: 20px;
+    border: none;
+    border-radius: 2px;
+}
+
+input:focus {
+    outline: none;
+}
+
+#send {
+    height: 30px;
+    width: 100%;
+}
