@@ -1,20 +1,23 @@
 body {
-    background-color: #a15656;
+    background-color: #ab4d4d;
     font-family: Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     /* align-items: center; */
-    height: 100vh;
+    height: 90vh;
     margin: 0;
-}
-
-form {
+    /* justify-content: center; */
+    /* place-items: center; */
+    align-items: center;
     width: 100%;
 }
 
+
+
 #main {
     border: 2px solid black;
-    width: 70%;
+    width: 30%;
 }
 
 #user {
@@ -24,7 +27,9 @@ form {
 
 textarea {
     height: 270px;
-    overflow: scroll;
+    overflow: auto;
+    /* scroll-behavior: smooth; */
+
     width: 100%;
     scrollbar-3dlight-color: aquamarine;
 }
@@ -39,7 +44,42 @@ input:focus {
     outline: none;
 }
 
+#msg-input {
+    height: 4vh;
+    width: 85%;
+}
+
+button {
+    height: 100%;
+    width: 48px;
+    background-color: #ea1e1e;
+    border: 1px solid black;
+    border-radius: 2px;
+    color: rgba(255, 255, 255, 0.87);
+}
+
 #send {
     height: 30px;
     width: 100%;
+}
+
+@media (max-width: 600px) {
+    #main {
+        /* height: ; */
+        width: 80%;
+
+    }
+
+    #send {
+        max-width: 100%;
+    }
+
+    #msg-input {
+        width: 70%;
+    }
+
+    button {
+        height: 30px;
+        width: 25%;
+    }
 }
