@@ -42,7 +42,7 @@ io.on('connection', (socket) => {
         msgary.push(data);
         io.emit('message', msgary);
     });
-app.listen(4000,()=>{
+app.listen(4408,()=>{
     console.log("server is started");
 });
 });
