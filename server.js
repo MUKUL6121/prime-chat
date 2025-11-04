@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const { Server } = require('socket.io');
 const http = require('http');
+const PORT = process.env.PORT || 7800;
 
 const app = express();
 
@@ -42,7 +43,7 @@ io.on('connection', (socket) => {
         msgary.push(data);
         io.emit('message', msgary);
     });
-app.listen(4408,()=>{
-    console.log("server is started");
 });
+app.listen(PORT,()=>{
+    console.log("server is started");
 });
