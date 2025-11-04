@@ -44,7 +44,3 @@ io.on('connection', (socket) => {
     });
 
 });
-
-server.listen(2000, () => {
-    console.log(`http://localhost:2000/`);
-});
