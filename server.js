@@ -35,6 +35,12 @@ io.on('connection', (socket) => {
         io.emit('message', msgary);
     });
 
+    socket.on('disconnect', () => {
+        users--;
+        io.emit('usercount', users);
+        console.log("A user Disconnected:", socket.id);
+    });
+
 });
 
 server.listen(PORT, () => {
